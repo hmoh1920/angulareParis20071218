@@ -3,6 +3,7 @@ import { COLLECTION } from '../../collection';
 import { CollectionService } from '../../../core/service/collection/collection.service';
 import { Item } from '../../../shared/interfaces/item.model';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
     @Component({
       selector: 'app-add',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
       styleUrls: ['./add.component.scss']
     })
     export class AddComponent implements OnInit {
-      collection: Item[];
+      collection: Observable<Item[]>;
       constructor(private _CollectionService: CollectionService, private _Router: Router) { }
 
       ngOnInit() {
