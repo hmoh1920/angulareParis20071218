@@ -9,6 +9,7 @@ import { HomeModule } from './home/home.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { ItemsModule } from './items/items.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CollectionService } from './core/service/collection/collection.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent
   ],
-  providers: [],
+  providers: [CollectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

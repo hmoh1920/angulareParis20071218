@@ -1,8 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Item } from '../../interfaces/item.model';
 import { State } from '../../enums/state.enum';
-import { FormBuilder, Validators } from '@angular/forms';
-import { FormGroup, FormControl } from '@angular/forms/src/model';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -28,15 +27,12 @@ export class FormComponent implements OnInit {
       Validators.minLength(4)
     ]);
     this.stateCtrl = this._FormBuilder.control(State.ALIVRER);
-this.form = this._FormBuilder.group({
-  name: this.nameCtrl,
-  ref: this.refCtrl,
-  state: this.stateCtrl
-});
-
-
+    this.form = this._FormBuilder.group({
+      name: this.nameCtrl,
+      ref: this.refCtrl,
+      state: this.stateCtrl
+    });
   }
-
 
   ngOnInit() {
     /*this.reset();*/
@@ -60,5 +56,9 @@ this.form = this._FormBuilder.group({
       reference: '',
       state: State.ALIVRER
     };*/
+  }
+
+  isError(valCtrl: string)  {
+    return  this.form.get(valCtrl).dirty && this.form.get(valCtrl).hasError('minlength');
   }
 }
