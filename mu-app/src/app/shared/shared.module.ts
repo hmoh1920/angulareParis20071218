@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './components/menu/menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { StateDirective } from './directives/state/state.directive';
 import { FormComponent } from './components/form/form.component';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +12,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     ],
   declarations: [
     MenuComponent,
