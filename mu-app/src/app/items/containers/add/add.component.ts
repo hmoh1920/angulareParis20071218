@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { COLLECTION } from '../../collection';
 import { CollectionService } from '../../../core/service/collection/collection.service';
 import { Item } from '../../../shared/interfaces/item.model';
+import { Router } from '@angular/router';
 
     @Component({
       selector: 'app-add',
@@ -10,7 +11,7 @@ import { Item } from '../../../shared/interfaces/item.model';
     })
     export class AddComponent implements OnInit {
       collection: Item[];
-      constructor(private _CollectionService: CollectionService) { }
+      constructor(private _CollectionService: CollectionService, private _Router: Router) { }
 
       ngOnInit() {
         this.collection = this._CollectionService.collection;
@@ -19,5 +20,6 @@ import { Item } from '../../../shared/interfaces/item.model';
         console.log(item);
         // this.collection.push(item);
         this._CollectionService.addItem(item);
+        this._Router.navigate(['/list']);
       }
     }
